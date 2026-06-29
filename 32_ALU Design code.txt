@@ -1,0 +1,16 @@
+// design code 
+module ALU32(
+    input [31:0] a,b,
+    output [32:0] add,sub,
+    output [63:0] mul,
+    output [31:0] div,and_out,or_out,not_out,xor_out
+    );
+    assign add = a + b;
+    assign sub = a - b;
+    assign mul = a * b;
+    assign div = (b != 0) ? a / b : 32'b0;
+    assign and_out = a & b;
+    assign or_out  = a | b;
+    assign not_out = ~a;
+    assign xor_out = a ^ b;
+endmodule

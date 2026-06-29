@@ -1,0 +1,72 @@
+// testbench code
+`timescale 1ns / 1ps
+
+module ALU_32_tb;
+
+// Inputs
+reg [31:0] a;
+reg [31:0] b;
+
+// Outputs
+wire [32:0] add;
+wire [32:0] sub;
+wire [63:0] mul;
+wire [31:0] div;
+wire [31:0] and_out;
+wire [31:0] or_out;
+wire [31:0] not_out;
+wire [31:0] xor_out;
+
+// Instantiate the ALU
+ALU32 uut (
+    .a(a),
+    .b(b),
+    .add(add),
+    .sub(sub),
+    .mul(mul),
+    .div(div),
+    .and_out(and_out),
+    .or_out(or_out),
+    .not_out(not_out),
+    .xor_out(xor_out)
+);
+
+initial
+begin
+
+    // Test Case 1
+    a = 32'd20;
+    b = 32'd10;
+    #10;
+
+    // Test Case 2
+    a = 32'd100;
+    b = 32'd25;
+    #10;
+
+    // Test Case 3
+    a = 32'd255;
+    b = 32'd15;
+    #10;
+
+    // Test Case 4
+    a = 32'd500;
+    b = 32'd200;
+    #10;
+
+    // Test Case 5 (Division by Zero)
+    a = 32'd50;
+    b = 32'd0;
+    #10;
+
+    $finish;
+
+end
+
+initial
+begin
+    $monitor("Time=%0t | a=%d | b=%d | ADD=%d | SUB=%d | MUL=%d | DIV=%d | AND=%h | OR=%h | XOR=%h | NOT=%h",
+             $time, a, b, add, sub, mul, div, and_out, or_out, xor_out, not_out);
+end
+
+endmodule
