@@ -128,6 +128,9 @@ Example:
 | 500 | 200 | 700 | 300 | 100000 | 2 |
 | 50 | 0 | 50 | 50 | 0 | 0 |
 
+<img width="1624" height="893" alt="simulation of 32_ALU" src="https://github.com/user-attachments/assets/b865fc1c-5ceb-4304-93d3-f54cfca37eb8" />
+
+
 ---
 
 ## Future Improvements
